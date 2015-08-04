@@ -4,3 +4,23 @@
 
 The idea for this app was mentioned during a Dev Bootcamp pitch day.
 I'm working on this because I like silly ideas and there is also a lot of potential features to add. It seems like a fun challenge.
+
+## The idea
+"It's like Tindr, but for fighting." You can use this app to find people to fight.
+
+## User stories.....as a user I want to
+### MVP
+- create an account
+- log in
+- edit my account
+- search for people to fight by fighting style
+- 'star' accounts of people who I'd like to fight in the future
+- see a list of users I have starred
+- see a list of users who have starred me
+- send a message to a user asking to fight
+### Future features
+- enter stats of a fight and have the other fighter verify them
+- see the stats of all the fights I've had
+- search for users based on other physical crteria - height, weight, ect
+- search for users who are geographically nearby
+- create fight events and have another user accept them
