@@ -10,6 +10,11 @@ describe User do
                         image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Markknopfler20061.jpg/440px-Markknopfler20061.jpg",
                         bio: "I play the git-tar on the mtv",
                         password: "password"})
+      @user2 = User.new({username: "direstraits",
+                        email: "money@fornothing.com",
+                        image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Markknopfler20061.jpg/440px-Markknopfler20061.jpg",
+                        bio: "I play the git-tar on the mtv",
+                        password: "password"})
 
 
     end
@@ -36,6 +41,16 @@ describe User do
     it 'is not valid with a bio longer than 1000 characters' do
       @user.bio = "w" * 1001
       expect(@user.save).to eq(false)
+    end
+
+    it 'should not allow duplicate usernames' do
+      @user.save
+      expect(@user2.save).to eq(false)
+    end
+
+    it 'should not allow duplicate emails' do
+      @user.save
+      expect(@user2.save).to eq(false)
     end
 
 
