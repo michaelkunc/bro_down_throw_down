@@ -14,12 +14,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    current_user
+  end
+
+
 
 
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :image_url, :bio, :password)
+  end
+
+  def current_user
+    @user = User.find_by(params[:id])
   end
 
 end
