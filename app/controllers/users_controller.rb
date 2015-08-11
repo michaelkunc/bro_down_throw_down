@@ -7,16 +7,23 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to "/"
+      redirect_to root_url
     else
       @errors = @user.errors
       render 'users/new'
     end
   end
 
+  def show
+    current_user
+    render 'users/show'
+  end
+
   def update
     current_user
   end
+
+
 
 
 
@@ -27,8 +34,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :image_url, :bio, :password)
   end
 
-  def current_user
-    @user = User.find_by(params[:id])
-  end
+
 
 end
