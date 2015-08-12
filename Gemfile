@@ -14,6 +14,10 @@ gem 'faker', '~> 1.4.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'autoprefixer-rails', '~> 5.2.1.1'
+gem 'pg_search'
+
+
+#not actually using simple form right now - need to review
 gem 'simple_form'
 
 # Use Unicorn as the app server
