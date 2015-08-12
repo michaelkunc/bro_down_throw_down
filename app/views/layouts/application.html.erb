@@ -15,6 +15,13 @@
       </a>
     </div>
 
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Find a fighter or a style">
+    </div>
+      <button type="submit" class="btn btn-default">Go Fight!</button>
+    </form>
+
     <% if logged_in? %>
       <form class="navbar-form navbar-right">
           <%= link_to 'Profile', current_user, class: "btn btn-default" %>
