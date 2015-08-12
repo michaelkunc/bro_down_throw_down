@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: [:username, :bio, :email]
 
   attr_accessor :remember_token
 

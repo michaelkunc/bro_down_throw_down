@@ -30,6 +30,7 @@ I'm working on this because I like silly ideas and there is also a lot of potent
 ## Tech Stack
 - PostgreSQL
 - Rails
+- pg_search for searching
 - Not sure about the JavaScript yet - thinking about a Backbone/Knockout combo or giving Knockback.js a try
 - Bootstrap for the CSS and layout
 - SASS
