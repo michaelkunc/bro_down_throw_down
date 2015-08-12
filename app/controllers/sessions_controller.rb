@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: session_params[:username])
     if user && user.authenticate(session_params[:password])
       log_in(user)
+      remember(user)
       redirect_to user
     else
       @errors = "Login Unsuccessful"
