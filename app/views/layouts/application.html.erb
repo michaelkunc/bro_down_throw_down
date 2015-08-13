@@ -15,12 +15,14 @@
       </a>
     </div>
 
-    <form class="navbar-form navbar-left" role="search">
+    <%= form_tag search_users_path, method: 'get', class:"navbar-form navbar-left", role: 'search' do %>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Find a fighter or a style">
-    </div>
-      <button type="submit" class="btn btn-default">Go Fight!</button>
-    </form>
+        <%= text_field_tag :query, params[:query], placeholder: 'Find a fighter or a style', class: "form-control"  %>
+      </div>
+        <%= submit_tag "Go fight", class: 'btn btn-default' %>
+    <% end %>
+
+
 
     <% if logged_in? %>
       <form class="navbar-form navbar-right">

@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     current_user
   end
 
+  def search
+    @results = User.text_search(params[:query])
+    render 'users/search'
+  end
+
 
 
   private
