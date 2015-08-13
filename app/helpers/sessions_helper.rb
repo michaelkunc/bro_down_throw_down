@@ -10,6 +10,10 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+#I'm pretty sure the problem is here in this method
+#interesting - the new user => sign in => signout works
+#as expected. It also doesn't create a remember token.
+
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: session[:user_id])
@@ -26,6 +30,7 @@ module SessionsHelper
   def logged_in?
     !current_user.nil?
   end
+
 
   def log_out
     session.delete(:user_id)
