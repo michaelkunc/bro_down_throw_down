@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   end
 
   def search
-    @results = User.text_search(params[:query])
-    render 'users/search'
+    @users = User.text_search(params[:query])
+    render 'users/index'
   end
 
 

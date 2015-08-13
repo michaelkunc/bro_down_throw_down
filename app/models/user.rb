@@ -36,7 +36,9 @@ class User < ActiveRecord::Base
   end
 
   def self.text_search(query)
-    search = PgSearch.multisearch(query)
+    results = []
+    PgSearch.multisearch(query).each {|s| results << User.find(s.searchable_id)}
+    results
   end
 
 end
