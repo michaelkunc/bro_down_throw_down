@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    current_user
+    @user = requested_user
     render 'users/show'
   end
 
@@ -35,6 +35,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :image_url, :bio, :password)
+  end
+
+  def requested_user
+    User.find_by(id: params[:id])
   end
 
 
