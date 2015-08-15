@@ -1,9 +1,17 @@
 class User < ActiveRecord::Base
+
   include PgSearch
   multisearchable against: [:username, :bio, :email]
 
   attr_accessor :remember_token
 
+  #associations
+  has_many :matchups, class_name: "Matchup", foreign_key: "challenger_id"
+  has_many :matchups, class_name: "Matchup", foreign_key: "challengee_id"
+  has_many :challengers, through: :matchups, source: :challenger
+  has_many :challengees, through: :matchups, source: :challengee
+
+  # validations
   validates_uniqueness_of :username
   validates :username, presence: true, length: {maximum: 25}
   validates :email, { presence: true, uniqueness: true }
