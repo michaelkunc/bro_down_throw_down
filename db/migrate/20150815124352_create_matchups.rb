@@ -1,4 +1,4 @@
-class Matchups < ActiveRecord::Migration
+class CreateMatchups < ActiveRecord::Migration
 
   def change
     create_table :matchups do |t|
