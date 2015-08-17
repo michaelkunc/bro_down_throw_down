@@ -2,8 +2,8 @@ class CreateMatchups < ActiveRecord::Migration
 
   def change
     create_table :matchups do |t|
-      t.references :challenger
-      t.references :challengee
+      t.integer :challenger_id
+      t.integer :challengee_id
       t.timestamps
     end
   end
