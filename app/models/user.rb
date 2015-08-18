@@ -1,14 +1,19 @@
 class User < ActiveRecord::Base
-  has_many :challengers, class_name:"Matchup", foreign_key:'challengee_id', dependent: :destroy
+  has_many :active_relationships, class_name:"Relationship",
+                                  foreign_key: "challenger_id",
+                                  dependent: :destroy
 
-  has_many :challengees, class_name:"Matchup", foreign_key:'challenger_id', dependent: :destroy
+  has_many :passive_relationships, class_name:"Relationship",
+                                  foreign_key: "challenged_id",
+                                  dependent: :destroy
+
+  has_many :challenged, through: :active_relationships, source: :challenged
+  has_many :challengers, through: :active_relationships, source: :challenger
 
   include PgSearch
   multisearchable against: [:username, :bio, :email]
 
   attr_accessor :remember_token
-
-
 
 
   validates_uniqueness_of :username
