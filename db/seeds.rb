@@ -15,6 +15,8 @@ end
 
 Relationship.create!({challenger: User.all.sample, challenged: User.first})
 
+Relationship.create!({challenger: User.first, challenged: User.second})
+
 10.times do
   Relationship.create!({challenger: User.all.sample,
                         challenged: User.all.sample})

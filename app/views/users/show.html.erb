@@ -1,4 +1,19 @@
 <%= render partial: "user", locals: {user: @user} %>
-<%= @challengers %>
+<h5>My Challengers</h1>
+<% @challengers.each do |challenger| %>
+  <p>
+    <%= challenger.challenger.username %>
+  </p>
+
+<% end %>
+
+
+<h5>Fighters I've Challenged</h1>
+<% @challenged.each do |challenged| %>
+  <p>
+    <%= challenged.challenged.username %>
+  </p>
+
+<% end %>
 
 
