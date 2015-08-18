@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @user = requested_user
-    @challengers = Relationship.find_by(challenged: @user)
+    @challengers = challengers(@user)
+    @challenged = challenged(@user)
     render 'users/show'
   end
 
@@ -42,5 +43,12 @@ class UsersController < ApplicationController
     User.find_by(id: params[:id])
   end
 
+  def challengers(user)
+    Relationship.where(challenged: user)
+  end
+
+  def challenged(user)
+    Relationship.where(challenger: user)
+  end
 
 end
