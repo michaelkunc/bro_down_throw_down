@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :relationships, only: [:new, :create, :destroy, :index]
+  resources :relationships, only: [:create, :destroy, :index]
 
 
   get 'login' => 'sessions#new'
