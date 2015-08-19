@@ -3,7 +3,20 @@
 <!-- not sure if the following logic should be here or back in the controller -->
 <% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == false %>
 
-<%= button_to "Add to my fight card", relationships_path({challenger_id: session[:user_id], challenged_id: @user.id}), class: "btn btn-default", method: "POST" %>
+  <%= form_for(current_user.active_relationships.build) do |f| %>
+  <div><% hidden_field_tag :challenged_id, @user.id %></div>
+  <%= f.submit "Challenge", class: "btn btn-primary" %>
+
+  <% end %>
+
+<% end %>
+
+<% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == true %>
+    <%= form_for(current_user.active_relationships.find_by(challenged_id: @user.id),
+               html: { method: :delete }) do |f| %>
+    <%= f.submit "Rescind Challenge", class: "btn btn-primary" %>
+
+  <% end %>
 <% end %>
 
 <h5>Challengers</h1>
