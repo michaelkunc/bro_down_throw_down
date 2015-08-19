@@ -4,7 +4,7 @@
 <% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == false %>
 
   <%= form_for(current_user.active_relationships.build) do |f| %>
-  <div><% hidden_field_tag :challenged_id, @user.id %></div>
+  <div><%= hidden_field_tag :username, @user.username %></div>
   <%= f.submit "Challenge", class: "btn btn-primary" %>
 
   <% end %>
