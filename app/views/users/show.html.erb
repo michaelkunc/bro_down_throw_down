@@ -1,8 +1,8 @@
 <%= render partial: "user", locals: {user: @user} %>
 
-<!-- not sure if the following logic should be here or back in the controller -->
-<% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == false %>
 
+<% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == false %>
+<!-- this is where the problem is -->
   <%= form_for(current_user.active_relationships.build) do |f| %>
   <div><%= hidden_field_tag :username, @user.username %></div>
   <%= f.submit "Challenge", class: "btn btn-primary" %>
@@ -22,7 +22,7 @@
 <h5>Challengers</h1>
 <% @challengers.each do |challenger| %>
   <p>
-    <%= challenger.challenger.username %>
+    <%= link_to(challenger.challenger.username, user_path(challenger.challenger)) %>
   </p>
 
 <% end %>
@@ -31,7 +31,7 @@
 <h5>Challenged Fighters</h1>
 <% @challenged.each do |challenged| %>
   <p>
-    <%= challenged.challenged.username %>
+    <%= link_to(challenged.challenged.username, user_path(challenged.challenged)) %>
   </p>
 
 <% end %>

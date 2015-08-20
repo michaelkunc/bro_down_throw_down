@@ -17,7 +17,6 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
   end
 
   def show
-    # something weird is going on here
     @user = requested_user
     @challengers = challengers(@user)
     @challenged = challenged(@user)
