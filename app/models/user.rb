@@ -53,13 +53,6 @@ class User < ActiveRecord::Base
     results
   end
 
-  def challenge(other_user)
-    active_relationships.create(challenged_id: other_user)
-  end
-
-  def unchallenge(other_user)
-    active_relationships.find_by(challenged_id: other_user).destroy
-  end
 
   def challenged?(other_user)
     challenged.include?(other_user)
