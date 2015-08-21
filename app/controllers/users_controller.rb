@@ -23,6 +23,10 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
     render 'users/show'
   end
 
+  def edit
+    @user = requested_user
+  end
+
   def update
     current_user
   end
