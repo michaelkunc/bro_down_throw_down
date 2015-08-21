@@ -23,6 +23,15 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
     render 'users/show'
   end
 
+  def edit
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      render 'users/show'
+    else
+      render 'edit'
+    end
+  end
+
   def update
     current_user
   end
