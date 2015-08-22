@@ -36,6 +36,11 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
     end
   end
 
+  def destroy
+    requested_user.destroy
+    redirect_to 'users/index'
+  end
+
   def search
     @users = User.text_search(params[:query])
     render 'users/index'
