@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
   validates :username, presence: true, length: {maximum: 25}
-  validates :email, { presence: true, uniqueness: true }
+  # validates :email, { presence: true, uniqueness: true }
   validates :password, length: {minimum: 6}
   validates :bio, length: {maximum: 1000}
 
