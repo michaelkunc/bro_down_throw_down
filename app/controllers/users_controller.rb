@@ -9,7 +9,7 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      UserMailer.welcome_email(@user).deliver
+      # UserMailer.welcome_email(@user).deliver
       redirect_to current_user
     else
       @errors = @user.errors
