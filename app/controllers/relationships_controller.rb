@@ -5,6 +5,7 @@ class RelationshipsController < ApplicationController
     other_user = User.find_by(username: params[:username])
     current_user
     challenge(current_user, other_user)
+    # UserMailer.challenge_email(current_user, other_user).deliver
     redirect_to current_user
   end
 
