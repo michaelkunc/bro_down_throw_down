@@ -21,3 +21,12 @@ Relationship.create!({challenger: User.first, challenged: User.second})
   Relationship.create!({challenger: User.all.sample,
                         challenged: User.all.sample})
 end
+
+
+styles = ['Brazilian Jiu-Jitsu', 'Kung Fu', 'Krav Maga', 'Dirty Boxing', 'Flamethrowing', 'Brass Knuckles', 'MMA', 'Judo', 'Savate', 'Muy Thai', 'Juggling', 'Laser/Repulsor Rays', 'Knife Fighting', 'Dance Off']
+
+styles.each do |style|
+  Style.create!({name: style,
+                description: Faker::Lorem.paragraph(4),
+                category: "Unarmed"})
+end
