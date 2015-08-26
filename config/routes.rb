@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy, :index]
 
 
+  resources :styles
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
