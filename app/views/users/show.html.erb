@@ -1,5 +1,11 @@
 <%= render partial: "user", locals: {user: @user} %>
 
+<ul>
+<% @user.skills.each do |skill| %>
+  <li><%= skill.style.name %></li>
+<% end %>
+</ul>
+
 
 <% if logged_in? && current_user.id != @user.id && current_user.challenged.include?(@user) == false %>
   <%= form_for(current_user.active_relationships.build) do |f| %>
