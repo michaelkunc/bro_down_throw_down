@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :challenged, through: :active_relationships, source: :challenged
   has_many :challengers, through: :active_relationships, source: :challenger
 
+  has_many :skills
+  has_many :styles, through: :skills
+
   include PgSearch
   multisearchable against: [:username, :bio, :email]
 
