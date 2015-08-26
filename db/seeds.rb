@@ -30,3 +30,8 @@ styles.each do |style|
                 description: Faker::Lorem.paragraph(4),
                 category: "Unarmed"})
 end
+
+100.times do
+Skill.create!({user: User.all.sample,
+              style: Style.all.sample})
+end
