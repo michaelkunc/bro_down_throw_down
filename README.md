@@ -14,6 +14,7 @@ I'm doing this as a learning exercise - so here's what I'm learning.....
 - pg_search
 - creating twitter style follow-follower associations
 - bootstrap/sass
+- action mailer
 
 
 ## MVP User stories.....as a user I want to

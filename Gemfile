@@ -17,6 +17,7 @@ gem 'pg_search'
 #gems to possibly remove
 gem 'coffee-rails', '~> 4.1.0'
 gem 'turbolinks'
+gem 'simple_form', '~> 3.1.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
