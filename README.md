@@ -8,6 +8,14 @@ I'm working on this because I like silly ideas and there is also a lot of potent
 ## The idea
 "It's like Tindr, but for fighting." You can use this app to find people to fight.
 
+## Stuff I'm learning on this project
+I'm doing this as a learning exercise - so here's what I'm learning.....
+
+- pg_search
+- creating twitter style follow-follower associations
+- bootstrap/sass
+
+
 ## MVP User stories.....as a user I want to
 - create an account
 - log in
