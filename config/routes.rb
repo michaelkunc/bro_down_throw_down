@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  post "users/:id/styles" => "users#add_to_styles", as: "user_add_style"
   resources :users do
     collection do
       get 'search'
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users do
+    resources :styles, only: [:show]
+  end
 
   resources :relationships, only: [:create, :destroy, :index]
 
