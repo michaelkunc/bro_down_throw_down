@@ -47,6 +47,13 @@ before_action :logged_in_user, only: [:edit, :update, :destroy, :challenged, :ch
     render 'users/index'
   end
 
+  def add_to_skills
+    @user = requested_user
+    Skill.new(user: @user, style: params[:style_id])
+    render 'users/show'
+
+  end
+
 
 
   private
