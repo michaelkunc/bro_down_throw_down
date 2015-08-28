@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  post "users/:id/styles" => "users#add_to_styles", as: "user_add_style"
+  post "users/:id/styles" => "users#add_to_skills", as: "user_add_skills"
   resources :users do
     collection do
       get 'search'
